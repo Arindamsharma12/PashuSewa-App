@@ -1,0 +1,10 @@
+ul li{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+nav{
+  border-bottom: 2px solid black;
+}
+ul li img{
+  width: 100px;
+}
