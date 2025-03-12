@@ -1,6 +1,6 @@
 import {Router} from 'express';
 import { verifyJWT } from '../middlewares/auth.middleware.js';
-import { createReport } from '../controllers/animalReport.controller.js';
+import { createReport,getAllReports } from '../controllers/animalReport.controller.js';
 import { upload } from '../middlewares/multer.middleware.js';
 
 const router = Router();
@@ -15,4 +15,5 @@ router.route("/create-report").post(upload.fields([
     maxCount:1
   }
 ]),createReport)
+router.route("/get-reports").get(getAllReports)
 export default router;

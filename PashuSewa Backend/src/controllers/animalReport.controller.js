@@ -11,7 +11,7 @@ const createReport = async (req, res) => {
     const { email, animal_type, injury_type, location, status, report_url } =
       req.body;
 
-      console.log(req.body)
+    console.log(req.body);
     // Validate required fields
     if (
       [email, animal_type, injury_type, location, status, report_url].some(
@@ -31,7 +31,7 @@ const createReport = async (req, res) => {
         .json({ success: false, message: "User not found" });
     }
     const imageLocalPath = req.files?.image_url[0]?.path;
-    console.log(req.files)
+    console.log(req.files);
     let coverImageLocalPath;
     if (
       req.files &&
@@ -45,7 +45,7 @@ const createReport = async (req, res) => {
     }
     // console.log(imageLocalPath);
     const image = await uploadOnCloudinary(imageLocalPath);
-    const coverImage = await uploadOnCloudinary(coverImageLocalPath)
+    const coverImage = await uploadOnCloudinary(coverImageLocalPath);
     if (!image) {
       throw new ApiError(400, "Image file is required");
     }
@@ -62,12 +62,10 @@ const createReport = async (req, res) => {
     });
 
     if (!animalReport) {
-      return res
-        .status(500)
-        .json({
-          success: false,
-          message: "Something went wrong while creating a report",
-        });
+      return res.status(500).json({
+        success: false,
+        message: "Something went wrong while creating a report",
+      });
     }
     // console.log(animalReport)
     return res.status(201).json({
@@ -77,27 +75,60 @@ const createReport = async (req, res) => {
     });
   } catch (error) {
     console.error("Error:", error);
-    return res
-      .status(500)
-      .json({
-        success: false,
-        message: "Internal server error",
-        error: error.message,
-      });
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
   }
 };
 // Get all reports
 const getAllReports = async (req, res) => {
   try {
-    const reports = await AnimalReport.find().populate("user_id", "name email");
-    res.status(200).json({ success: true, data: reports });
+    const {
+      status,
+      animal_type,
+      page = 1,
+      limit = 10,
+      sortBy = "createdAt",
+      order = "desc",
+    } = req.query;
+
+    // Filter conditions
+    const filter = {};
+    if (status) filter.status = status;
+    if (animal_type) filter.animal_type = animal_type;
+
+    // Pagination and Sorting
+    const options = {
+      skip: (page - 1) * limit,
+      limit: parseInt(limit),
+      sort: { [sortBy]: order === "desc" ? -1 : 1 },
+    };
+
+    const reports = await AnimalReport.find();
+    // const reports = await AnimalReport.find().populate({
+    //   path: "user_id",
+    //   model: "User", // Explicitly mention the model name if issues persist
+    //   select: "email",
+    // });
+
+    const totalReports = await AnimalReport.countDocuments(filter);
+    console.log(reports)
+    res.status(200).json({
+      success: true,
+      totalReports,
+      currentPage: parseInt(page),
+      totalPages: Math.ceil(totalReports / limit),
+      data: reports,
+    });
   } catch (error) {
+    console.error("Error fetching reports:", error);
     res
       .status(500)
       .json({
         success: false,
-        message: "Error fetching reports",
-        error: error.message,
+        message: "Server error. Please try again later.",
       });
   }
 };
@@ -116,13 +147,11 @@ const getReportById = async (req, res) => {
 
     res.status(200).json({ success: true, data: report });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Error fetching report",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Error fetching report",
+      error: error.message,
+    });
   }
 };
 
@@ -145,13 +174,11 @@ const updateReportStatus = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Report status updated", data: report });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Error updating report status",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Error updating report status",
+      error: error.message,
+    });
   }
 };
 
@@ -168,14 +195,12 @@ const deleteReport = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Report deleted successfully" });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Error deleting report",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Error deleting report",
+      error: error.message,
+    });
   }
 };
 
-export { createReport };
+export { createReport, getAllReports };

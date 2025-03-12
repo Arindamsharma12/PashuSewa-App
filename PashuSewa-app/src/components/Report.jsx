@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import logo from '../images/Pashu_Sewa_Logo.png';
 const ReportForm = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -59,9 +59,14 @@ const ReportForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-10 bg-white shadow-md p-6 rounded-lg">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Report an Injured Animal</h2>
+    <div className="max-w-lg mx-auto mt-10 bg-white shadow-2xl p-6 rounded-lg">
+      <div className="flex flex-col items-center">
+        <img src={logo} alt="" width={"100px"}/>
+      <h2 className="text-2xl font-bold text-orange-600 mb-4">
+          Report an Injured Animal
+        </h2>
       {message && <p className="text-center text-green-600 mb-4">{message}</p>}
+      </div>
       
       <form onSubmit={handleSubmit} className="space-y-4" encType="multipart/form-data">
         <input
@@ -71,7 +76,7 @@ const ReportForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
         />
         <input
           type="text"
@@ -80,7 +85,7 @@ const ReportForm = () => {
           value={formData.animal_type}
           onChange={handleChange}
           required
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
         />
         <input
           type="text"
@@ -89,7 +94,7 @@ const ReportForm = () => {
           value={formData.injury_type}
           onChange={handleChange}
           required
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
         />
         <input
           type="text"
@@ -98,7 +103,7 @@ const ReportForm = () => {
           value={formData.location}
           onChange={handleChange}
           required
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
         />
         
         <input
@@ -107,7 +112,7 @@ const ReportForm = () => {
           placeholder="Report URL (Optional)"
           value={formData.report_url}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
         />
 
         <div>
@@ -118,7 +123,7 @@ const ReportForm = () => {
             accept="image/*"
             onChange={handleFileChange}
             required
-            className="w-full p-2 border border-gray-300 rounded bg-gray-100"
+            className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
@@ -129,14 +134,14 @@ const ReportForm = () => {
             name="coverImage"
             accept="image/*"
             onChange={handleFileChange}
-            className="w-full p-2 border border-gray-300 rounded bg-gray-100"
+            className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
+          className="bg-orange-600 text-white px-4 py-2 rounded-md hover:bg-orange-700 cursor-pointer w-full"
         >
           {loading ? "Submitting..." : "Submit Report"}
         </button>

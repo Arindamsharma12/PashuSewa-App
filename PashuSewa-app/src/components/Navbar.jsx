@@ -6,7 +6,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white p-4 shadow-md w-full">
+    <nav className="bg-white p-4 shadow-2xl border-b border-gray-800 w-full">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex flex-col w-auto items-center">
@@ -16,11 +16,11 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 text-orange-600 font-semibold text-lg">
-          <li><a href="/" className="hover:text-orange-400">Home</a></li>
-          <li><a href="/about" className="hover:text-orange-400">About us</a></li>
+          <li><a href="/" className=" hover:border-b-2 border-orange-400 hover:text-orange-400">Home</a></li>
+          <li><a href="/about" className="hover:border-b-2 border-orange-400 hover:text-orange-400">About us</a></li>
           
           {/* Services Dropdown */}
-          <li className="relative">
+          <li className="relative hover:border-b-2 border-orange-400">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="flex items-center hover:text-orange-400"
@@ -36,7 +36,7 @@ export default function Navbar() {
             )}
           </li>
           
-          <li><a href="#" className="hover:text-orange-400">Contact Us</a></li>
+          <li><a href="#" className=" hover:border-b-2 border-orange-400hover:text-orange-400">Contact Us</a></li>
         </ul>
 
         {/* Buttons */}
@@ -65,7 +65,7 @@ export default function Navbar() {
             </button>
             {dropdownOpen && (
               <ul className="bg-white border border-orange-300 mt-2 rounded shadow-md">
-                <li><a href="#" className="block px-4 py-2 hover:bg-orange-100">Service 1</a></li>
+                <li><a href="/report" className="block px-4 py-2 hover:bg-orange-100">Animal Report</a></li>
                 <li><a href="#" className="block px-4 py-2 hover:bg-orange-100">Service 2</a></li>
                 <li><a href="#" className="block px-4 py-2 hover:bg-orange-100">Service 3</a></li>
               </ul>
@@ -73,10 +73,10 @@ export default function Navbar() {
           </li>
           <li><a href="#" className="block py-2 hover:text-orange-400">Contact Us</a></li>
           <li>
-            <button className="w-full bg-orange-600 text-white px-4 py-2 rounded-md hover:bg-orange-700 cursor-pointer">Login</button>
+          <a href="/login"><button className="w-full bg-orange-600 text-white px-4 py-2 rounded-md hover:bg-orange-700 cursor-pointer">Login</button></a>
           </li>
           <li>
-            <button className="w-full bg-orange-600 text-white px-4 py-2 rounded-md hover:bg-orange-700 cursor-pointer">Sign up</button>
+            <a href="/signup"><button className="w-full bg-orange-600 text-white px-4 py-2 rounded-md hover:bg-orange-700 cursor-pointer">Sign up</button></a>
           </li>
         </ul>
       )}
