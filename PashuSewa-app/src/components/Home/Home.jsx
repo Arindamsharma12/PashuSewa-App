@@ -4,6 +4,7 @@ import { FaUserDoctor } from "react-icons/fa6";
 import { PiDogFill } from "react-icons/pi";
 import { MdHealthAndSafety } from "react-icons/md";
 import { FaPaw } from "react-icons/fa";
+import bgvideo from "../../images/petbg.mp4";
 const features = [
   {
     name: 'Emergency Assistance:',
@@ -34,6 +35,23 @@ const features = [
 export default function Hero() {
   return (
     <>
+    <div className="bg-gradient-to-br flex flex-col items-center justify-center from-orange-500 via-orange-400 to-orange-600 text-white py-16 px-8 min-h-auto text-center">
+      <div className='lg:w-[70%]'>
+        
+            <div className='flex justify-center space-x-6'>
+            <FaPaw className='text-[3rem]'/>
+            <h1 className="text-4xl font-bold mb-6">
+                Empowering Animal Care with Technology
+            </h1>
+            </div>
+            <p className="text-lg leading-8">
+                <strong>Online veterinary services</strong> are now more accessible and efficient, thanks to <strong>Pashu Sewa</strong>. Their mission is to deliver affordable, high-quality veterinary care to pet owners and livestock farmers in India. The innovative <strong>Pashu Sewa</strong> app offers instant and convenient video consultations with certified veterinarians and trained animal caregivers. By eliminating the need for lengthy travel and inconvenient appointments, the platform ensures <strong>seamless</strong> and effective animal care right from the comfort of your home or farm.
+            </p>
+            <p className="text-lg leading-8 mt-6">
+                With <strong>Pashu Sewa’s</strong> AI-enabled diagnosis tool, you can access expert guidance for early disease detection and preliminary assessment. The platform’s multilingual support in 11 Indian languages bridges communication gaps, fostering stronger connections between pet owners and veterinarians. Flexible pricing plans and subscription models ensure that <strong>Pashu Sewa</strong> remains <strong>affordable</strong> for all, empowering pet owners and livestock caregivers to actively safeguard their animals' health and well-being.
+            </p>
+      </div>
+    </div>
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 max-w-screen">
         <div className="mx-auto max-w-[70%] lg:text-center ">
@@ -62,23 +80,12 @@ export default function Hero() {
         </div>
       </div>
     </div>
-    <div className="bg-gradient-to-br flex flex-col items-center justify-center from-orange-500 via-orange-400 to-orange-600 text-white py-16 px-8 min-h-auto text-center">
-      <div className='lg:w-[70%]'>
-        
-            <div className='flex justify-center space-x-6'>
-            <FaPaw className='text-[100px]'/>
-            <h1 className="text-4xl font-bold mb-6">
-                Empowering Animal Care with Technology
-            </h1>
-            </div>
-            <p className="text-lg leading-8">
-                <strong>Online veterinary services</strong> are now more accessible and efficient, thanks to <strong>Pashu Sewa</strong>. Their mission is to deliver affordable, high-quality veterinary care to pet owners and livestock farmers in India. The innovative <strong>Pashu Sewa</strong> app offers instant and convenient video consultations with certified veterinarians and trained animal caregivers. By eliminating the need for lengthy travel and inconvenient appointments, the platform ensures <strong>seamless</strong> and effective animal care right from the comfort of your home or farm.
-            </p>
-            <p className="text-lg leading-8 mt-6">
-                With <strong>Pashu Sewa’s</strong> AI-enabled diagnosis tool, you can access expert guidance for early disease detection and preliminary assessment. The platform’s multilingual support in 11 Indian languages bridges communication gaps, fostering stronger connections between pet owners and veterinarians. Flexible pricing plans and subscription models ensure that <strong>Pashu Sewa</strong> remains <strong>affordable</strong> for all, empowering pet owners and livestock caregivers to actively safeguard their animals' health and well-being.
-            </p>
-      </div>
-        </div>
+    <div className="video-container">
+      <video autoPlay loop muted playsInline className="background-video">
+        <source src={bgvideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
     </>
   )
 }

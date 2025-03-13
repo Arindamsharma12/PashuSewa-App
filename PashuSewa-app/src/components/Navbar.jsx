@@ -54,8 +54,8 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <ul className="md:hidden bg-white p-4 mt-2 space-y-4 text-center text-orange-600 shadow-md border-t">
-          <li><a href="#" className="block py-2 hover:text-orange-400">Home</a></li>
-          <li><a href="#" className="block py-2 hover:text-orange-400">About us</a></li>
+          <li><a href="/" className="block py-2 hover:text-orange-400">Home</a></li>
+          <li><a href="/about" className="block py-2 hover:text-orange-400">About us</a></li>
           <li className="relative">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
