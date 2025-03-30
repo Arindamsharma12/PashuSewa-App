@@ -133,6 +133,14 @@ This project is licensed under the **MIT License**.
 ### Report Form
 ![Report Form](assets/report.png)
 
-### Admin Dashboard
-![Admin Dashboard](assets/admin.png)
+### AI Powered Injury Detector
+![AI Powered Injury Detector](assets/injury.png)
 
+### Signup Form
+![Signup Form](assets/signup.png)
+
+### About Page
+![About Page](assets/about.png)
+
+### AI Powered Diet Planner
+![Diet Plannar](assets/diet.png)
