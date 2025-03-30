@@ -1,5 +1,7 @@
 # Pashu Sewa
 
+![Pashu Sewa Banner](assets/banner.png)
+
 ## Project Overview
 **Pashu Sewa** is an animal welfare platform designed to help injured and stray animals by enabling users to report cases and donate for their treatment. The platform leverages Web3 technology to reward users with ERC20 tokens for each valid injury report. The project includes both a web and an Android version, ensuring accessibility for a wider audience.
 
@@ -13,6 +15,14 @@ Stray and injured animals often do not receive timely care due to a lack of awar
 - **User Authentication**: Secure authentication system to prevent spam reports.
 - **Admin Dashboard**: Admins can verify reports and track donations.
 - **Multi-Platform Support**: Web-based and Android versions for ease of access.
+
+---
+
+## Deployed Link
+🔗 [Live Demo](https://pashusewa.com)
+
+## Video Demo
+🎥 [Watch Demo](https://youtu.be/example-demo-link)
 
 ---
 
@@ -52,7 +62,8 @@ Ensure you have the following dependencies installed to run the project:
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/Arindamsharma12/PashuSewa-App.git
+git clone https://github.com/yourusername/pashu-sewa.git
+cd pashu-sewa
 ```
 
 ### 2. Backend Setup
@@ -67,6 +78,7 @@ Create a `.env` file in the backend directory and add:
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 CLOUDINARY_URL=your_cloudinary_api_url
+WEB3_INFURA_PROJECT_ID=your_infura_project_id
 PRIVATE_KEY=your_erc20_smart_contract_private_key
 ```
 
@@ -80,6 +92,13 @@ npm start
 cd frontend
 npm install
 npm run dev
+```
+
+### 4. Mobile App Setup
+```sh
+cd mobile
+npm install
+npx expo start
 ```
 
 ### 5. Deploying Smart Contract
@@ -103,4 +122,16 @@ For any issues, feel free to create an issue on GitHub or contact us!
 
 ## License
 This project is licensed under the **MIT License**.
+
+---
+
+## Screenshots
+### Home Page
+![Home Page](assets/home.png)
+
+### Report Form
+![Report Form](assets/report.png)
+
+### Admin Dashboard
+![Admin Dashboard](assets/admin.png)
 
