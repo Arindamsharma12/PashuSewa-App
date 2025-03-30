@@ -19,10 +19,11 @@ Stray and injured animals often do not receive timely care due to a lack of awar
 ---
 
 ## Deployed Link
-🔗 [Live Demo](https://pashusewa.com)
+🔗 [Live Demo](http://pashusewa.netlify.app)
 
 ## Video Demo
-🎥 [Watch Demo](https://youtu.be/example-demo-link)
+🎥 [Watch Demo-1](https://drive.google.com/file/d/1DAhWFz6tYYbJPA9pz8D9ozUt23D7qWUj/view?usp=drivesdk)
+🎥 [Watch Demo-2](https://drive.google.com/file/d/1mOLAd2-X1DQwDLqEdbraBhbnr4DxM6GY/view?usp=drivesdk) 
 
 ---
 
