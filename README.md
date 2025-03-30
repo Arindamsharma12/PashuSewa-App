@@ -63,8 +63,7 @@ Ensure you have the following dependencies installed to run the project:
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/yourusername/pashu-sewa.git
-cd pashu-sewa
+git clone https://github.com/Arindamsharma12/PashuSewa-App.git
 ```
 
 ### 2. Backend Setup
@@ -76,11 +75,9 @@ npm install
 #### Environment Variables (.env)
 Create a `.env` file in the backend directory and add:
 ```sh
-PORT=5000
+PORT=8000
 MONGO_URI=your_mongodb_connection_string
 CLOUDINARY_URL=your_cloudinary_api_url
-WEB3_INFURA_PROJECT_ID=your_infura_project_id
-PRIVATE_KEY=your_erc20_smart_contract_private_key
 ```
 
 Run the backend server:
@@ -99,14 +96,6 @@ npm run dev
 ```sh
 cd mobile
 npm install
-npx expo start
-```
-
-### 5. Deploying Smart Contract
-```sh
-cd blockchain
-npm install
-npx hardhat run scripts/deploy.js --network goerli
 ```
 
 ---
@@ -118,11 +107,6 @@ npx hardhat run scripts/deploy.js --network goerli
 - **Track Reports**: Users can monitor reported cases and donations.
 
 For any issues, feel free to create an issue on GitHub or contact us!
-
----
-
-## License
-This project is licensed under the **MIT License**.
 
 ---
 
